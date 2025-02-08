@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+<header id="navbar">
+
+	<!-- Logo	-->
+	<div class="logo-container prevent-select">
+		<a href="#" class="no-style">
+			<img src="https://i.imgur.com/FYHBGge.png" alt="Website Logo" class="logo" />
+			<img src="https://i.imgur.com/IgZRCgQ.png" alt="Website Logo" class="logo logo--filled" />
+			<!-- The colors for logo are as follows:
+            Base: --accent-100 (from light theme)
+            Secondary: #f3c97a 
+            Tertiary: #b77942 
+            Accent: #8f5e28 
+          -->
+		</a>
+	</div>
+
+	<!-- Navigation	-->
+	<nav>
+		<ul class="prevent-select nav__menu">
+			<li>
+				<a href="#" class="no-style">Home</a>
+			</li>
+			<li>
+				<a href="#" class="no-style">Shop</a>
+			</li>
+			<li>
+				<a href="#" class="no-style">About</a>
+			</li>
+			<li>
+				<a href="#" class="no-style">Contact</a>
+			</li>
+			<li>
+				<a href="e-commerce-login.html" class="no-style">Login</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+	<!-- Hero Section	-->
+	<section id="hero">
+		<h1 class="hero__title animate__animated animate__fadeIn">Welcome to Mammazon</h1>
+		<p class="hero__subtext animate__animated animate__fadeIn">Discover the best products at unbeatable prices! </p>
+		<a href="#categories" class="no-style">
+			<button type="button" value="shop-now" class="cta-button prevent-select"> Shop Now </button>
+		</a>
+		<div class="offer-text">
+			<p class="prevent-select">Special Offer! Get 20% off on all electronics!</p>
+		</div>
+	</section>
+
+	<!-- Categories Section -->
+	<section id="categories">
+		<h2 class="section__heading">Shop by Catergory</h2>
+
+		<!-- Product Container	-->
+		<div class="container">
+
+			<!-- Electronics -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/2QnAbfn.jpg" alt="Electronics" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">Electronics</figcaption>
+				</figure>
+			</div>
+
+			<!-- Fashion -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/dq2zGfx.jpg" alt="Fashion" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">Fashion</figcaption>
+				</figure>
+			</div>
+
+			<!-- Home Decor -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/HGdAeUa.jpg" alt="Home Decor" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">Home Decor</figcaption>
+				</figure>
+			</div>
+
+			<!-- Books -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/YHlWzp3.jpg" alt="Books" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">Books</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Section -->
+	<section id="featured">
+		<h2 class="section__heading">Featured Products</h2>
+
+		<!-- Product Container -->
+		<div class="container">
+
+			<!-- Product 1 -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/t33dkPi.jpg" alt="VR Headset" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">VR Headset</figcaption>
+				</figure>
+				<p class="product-info__price">$599.99</p>
+			</div>
+
+			<!-- Product 2 -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/r8ALHZj.jpg" alt="Chocolate" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name">Chocolate</figcaption>
+				</figure>
+				<p class="product-info__price">$29.99</p>
+			</div>
+
+			<!-- Product 3 -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/ZiwynRt.jpg" alt="Air Conditioner" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name"> Air Conditioner </figcaption>
+				</figure>
+				<p class="product-info__price">$799.99</p>
+			</div>
+
+			<!-- Product 4 -->
+			<div class="product">
+				<figure class="product-info">
+					<div class="hover-effect">
+						<img src="https://i.imgur.com/qIR7Wo3.jpg" alt="Acoustic Guitar" class="prevent-select product-info__img" />
+					</div>
+					<figcaption class="product-info__name"> Acoustic Guitar </figcaption>
+				</figure>
+				<p class="product-info__price">$199.99</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="product-features">
+		<h2 class="section__heading">Product Features Comparison</h2>
+
+		<!-- Comparison Table -->
+		<table border=1 class="comparison-table">
+
+			<thead class="table__head">
+				<tr>
+					<th rowspan=2 class="table__header">Product</th>
+					<th rowspan=2 class="table__header">Price</th>
+					<th rowspan=2 class="table__header">Features</th>
+					<th colspan=2 class="table__header">Details</th>
+				</tr>
+				<tr>
+					<th class="table__header">Size</th>
+					<th class="table__header">Weight</th>
+				</tr>
+			</thead>
+
+			<tbody class="table__body">
+				<tr>
+					<td class="table__data">Product 1</td>
+					<td class="table__data">$49.99</td>
+					<td class="table__data">Lorem ipsum odor amet, consectetuer adipiscing elit.</td>
+					<td class="table__data">Large</td>
+					<td class="table__data">1.5kg</td>
+				</tr>
+				<tr>
+					<td class="table__data">Product 2</td>
+					<td class="table__data">$59.99</td>
+					<td class="table__data">Lorem ipsum odor amet, consectetuer adipiscing elit.</td>
+					<td class="table__data">Medium</td>
+					<td class="table__data">1.2kg</td>
+				</tr>
+				<tr>
+					<td class="table__data">Product 3</td>
+					<td class="table__data">$69.99</td>
+					<td class="table__data">Lorem ipsum odor amet, consectetuer adipiscing elit.</td>
+					<td class="table__data">Small</td>
+					<td class="table__data">0.8kg</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<!-- Testimonials Section -->
+	<section id="testimonials">
+		<h2 class="section__heading">Customer Testimonials</h2>
+
+		<!-- Testimonial Container -->
+		<div class="container">
+
+			<!-- Testimonial 1 -->
+			<div class="testimony">
+				<q class="center-text testimony__quote">Lorem ipsum odor amet, consectetuer adipiscing elit.</q>
+				<cite class="prevent-select center-text testimony__author">Tony Stark</cite>
+			</div>
+
+			<!-- Testimonial 2 -->
+			<div class="testimony">
+				<q class="center-text testimony__quote">Nunc facilisis pulvinar tortor. Vivamus venenatis nunc vitae mi elementum.</q>
+				<cite class="prevent-select center-text testimony__author">Steve Rogers</cite>
+			</div>
+
+			<!-- Testimonial 3 -->
+			<div class="testimony">
+				<q class="center-text testimony__quote">Curabitur at felis vitae ante sagittis pulvinar. Donec nisl augue.</q>
+				<cite class="prevent-select center-text testimony__author">Thor Odinson</cite>
+			</div>
+
+			<!-- Testimonial 4 -->
+			<div class="testimony">
+				<q class="center-text testimony__quote">Phasellus accumsan, lorem vel maximus mollis, justo erat ultricies nunc.</q>
+				<cite class="prevent-select center-textb testimony__author">Bruce Banner</cite>
+			</div>
+		</div>
+	</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+	<p class="prevent-select">
+		<span class="bigger">&copy;</span>
+		<span>2024 Mammazon &reg; <span class="bigger">&trade;</span>. All Rights Reserved. </span>
+	</p>
+</footer>
+  <script src="new.js"></script>
+</body>
+</html>

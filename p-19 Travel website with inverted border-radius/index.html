@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Moderustic&family=SUSE:wght@600&display=swap");
+
+    :root {
+      --clr-white: #fff;
+      --clr-black: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--clr-white);
+      font-family: "Moderustic", sans-serif;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--clr-white);
+      position: relative;
+      transform: translateY(0);
+      transition: 0.2s ease-in-out;
+    }
+
+    ul li:hover {
+      transform: translateY(-10px);
+      cursor: pointer;
+    }
+
+    ul li::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: hsl(0deg 0% 6.67% / 20%);
+    }
+
+    ul li span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 0.6rem;
+      color: var(--clr-white);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ul li + li {
+      margin-left: -10px;
+    }
+
+    ul img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    main {
+      width: 90%;
+      max-width: 70rem;
+      margin: auto;
+      color: var(--clr-black);
+      padding-block: 2rem;
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    @media screen and (min-width: 40rem) {
+      .heading {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .heading h1 {
+      font-size: clamp(2.5rem, 1.6rem + 4vw, 6.5rem);
+      font-family: "SUSE", sans-serif;
+      font-weight: 600;
+    }
+
+    .heading aside {
+      margin-top: 1.5em;
+      max-width: 16.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    @media screen and (min-width: 40rem) {
+      .heading aside {
+        margin-top: 3em;
+      }
+    }
+
+    .container {
+      margin-top: 2em;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media screen and (min-width: 40rem) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 3.5em;
+        gap: 2rem;
+      }
+    }
+
+    .card {
+      background: var(--clr-white);
+      border-radius: 1.2rem;
+      position: relative;
+      height: 24rem;
+      padding: 1rem;
+    }
+
+    .card p a {
+      font-size: 0.9rem;
+      color: var(--clr-black);
+      text-decoration: none;
+    }
+
+    .card p a:hover {
+      font-weight: 600;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .imgBox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+
+    .more ul {
+      display: flex;
+    }
+
+    .tag a {
+      font-size: 0.8rem;
+      color: var(--clr-black);
+      font-weight: 400;
+      border: 2px solid #c8c8c8;
+      border-radius: 50px;
+      padding: 5px 10px;
+      text-decoration: none;
+      transition: 0.2s ease-in-out;
+    }
+
+    .tag a:hover {
+      background: var(--clr-black);
+      color: var(--clr-white);
+      border: 2px solid var(--clr-black);
+    }
+
+    .poster {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .poster:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: url("https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2070&auto=format&fit=crop");
+      background-size: cover;
+      transition: 1s ease;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    .poster-active:after {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="heading">
+      <h1>Mountains tours <br>& glamping</h1>
+      <aside>
+        <p>Our tours immerse you in the beauty of the mountains. Enjoy your time with nature with a choice of guided day hikes.</p>
+        <p>Since 2021</p>
+      </aside>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-inner">
+          <div class="imgBox">
+            <img src="https://images.unsplash.com/photo-1598601065215-751bf8798a2c" alt="Awesome views">
+          </div>
+        </div>
+      </div>
+
+      <div class="card video">
+        <div class="card-inner">
+          <div class="videoBox poster">
+            <iframe id="myIframe" width="100%" height="100%" src="https://www.youtube.com/embed/5D8TBicNIb8?controls=0" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><a href="#">More about tours</a></p>
+        <div class="card-inner">
+          <div class="imgBox">
+            <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7" alt="Hiking">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll(".poster").forEach(poster => {
+      poster.addEventListener("click", function () {
+        this.classList.add("poster-active");
+        let iframe = this.querySelector("#myIframe");
+        if (iframe) {
+          iframe.src += "&autoplay=1";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

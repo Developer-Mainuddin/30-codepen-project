@@ -1,0 +1,402 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+.toggle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.round {
+  border-radius: 34px;
+}
+
+.round:before {
+  border-radius: 50%;
+}
+
+/* iOS Style */
+.ios .ios-slider {
+  background-color: #f0f0f0;
+  border: 2px solid #e0e0e0;
+}
+
+.ios input:checked + .ios-slider {
+  background-color: #4cd964;
+}
+
+/* Flat Design */
+.flat .flat-slider {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.flat input:checked + .flat-slider {
+  background-color: #3498db;
+}
+
+/* Gradient */
+.gradient .gradient-slider {
+  background: linear-gradient(45deg, #ff9966, #ff0000);
+}
+
+.gradient input:checked + .gradient-slider {
+  background: linear-gradient(45deg, #009999, #99cccc);
+}
+
+/* Material Design */
+.material .material-slider {
+  background-color: rgba(33, 150, 243, 0.3);
+}
+
+.material input:checked + .material-slider {
+  background-color: rgba(33, 150, 243, 0.7);
+}
+
+/* Neon Effect */
+.neon .neon-slider {
+  background-color: #333;
+  box-shadow: 0 0 5px #333;
+}
+
+.neon input:checked + .neon-slider {
+  background-color: #00ff00;
+  box-shadow: 0 0 15px #00ff00;
+}
+
+/* Skewed Style */
+.skewed .skewed-slider {
+  background-color: #34495e;
+  transform: skew(-10deg);
+}
+
+.skewed .skewed-slider:before {
+  background-color: #2ecc71;
+  transform: skew(10deg);
+}
+
+.skewed input:checked + .skewed-slider {
+  background-color: #2ecc71;
+}
+
+/* Thin Style */
+.thin .thin-slider {
+  background-color: #eeffff;
+  border-radius: 20px;
+  top: 7px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.thin .thin-slider:before {
+  width: 18px;
+  height: 18px;
+  background-color: #3333ff;
+}
+
+/* Fill Effect */
+.fill .fill-slider {
+  background-color: #bdc3c7;
+}
+
+.fill input:checked + .fill-slider {
+  background-color: #27ae60;
+}
+
+.fill input:checked + .fill-slider:before {
+  transform: translateX(26px);
+  background-color: white;
+}
+
+/* Bounce Effect */
+.bounce .bounce-slider {
+  background-color: #95a5a6;
+}
+
+.bounce input:checked + .bounce-slider:before {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(20px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+}
+
+/* Shadow Effect */
+.shadow .shadow-slider {
+  background-color: #bdc3c7;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.shadow input:checked + .shadow-slider {
+  background-color: #2ecc71;
+}
+
+.shadow .shadow-slider:before {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Flip Effect */
+.flip .flip-slider {
+  background-color: #e74c3c;
+  perspective: 400px;
+}
+
+.flip input:checked + .flip-slider:before {
+  transform: translateX(25px) rotateY(180deg);
+  background-color: #2ecc71;
+}
+
+.toggleContainer {
+  font-size: 80%;
+  font-family: Montserrat;
+  padding: 5px;
+  box-shadow: 0 3rem 5rem -2rem rgba(0, 0, 0, 0.8);
+}
+
+/*  Toggle Switch  */
+
+.toggleSwitch span span {
+  display: none;
+}
+
+@media only screen {
+  .toggleSwitch {
+    display: inline-block;
+    height: 18px;
+    position: relative;
+    overflow: visible;
+    padding: 0;
+    margin-left: 50px;
+    cursor: pointer;
+    width: 38px;
+  }
+  .toggleSwitch * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .noToggleLabel {
+    margin-left: 0px;
+  }
+  .toggleSwitch label,
+  .toggleSwitch > span {
+    line-height: 20px;
+    height: 22px;
+    vertical-align: middle;
+  }
+  .toggleSwitch input:focus ~ a,
+  .toggleSwitch input:focus + label {
+    outline: none;
+  }
+  .toggleSwitch label {
+    position: relative;
+    z-index: 3;
+    display: block;
+    width: 100%;
+  }
+  .toggleSwitch input {
+    position: absolute;
+    opacity: 0;
+    z-index: 5;
+  }
+  .toggleSwitch > span {
+    position: absolute;
+    left: -50px;
+    width: 100%;
+    margin: 0;
+    padding-right: 50px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .toggleSwitch > span span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: block;
+    width: 50%;
+    margin-left: 50px;
+    text-align: left;
+    font-size: 0.9em;
+    width: 100%;
+    left: 15%;
+    top: -1px;
+    opacity: 0;
+  }
+  .toggleSwitch a {
+    position: absolute;
+    right: 50%;
+    z-index: 4;
+    display: block;
+    height: 100%;
+    padding: 0;
+    left: 2px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  .toggleSwitch > span span:first-of-type {
+    color: #ccc;
+    opacity: 1;
+    left: 45%;
+  }
+  .toggleSwitch > span:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50px;
+    top: -2px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  .toggleSwitch input:checked ~ a {
+    border-color: #fff;
+    left: 100%;
+    margin-left: -8px;
+  }
+  .toggleSwitch input:checked ~ span:before {
+    border-color: #0097d1;
+    box-shadow: inset 0 0 0 30px #0097d1;
+  }
+  .toggleSwitch input:checked ~ span span:first-of-type {
+    opacity: 0;
+  }
+  .toggleSwitch input:checked ~ span span:last-of-type {
+    opacity: 1;
+    color: #fff;
+  }
+  /* Switch Sizes */
+  .toggleSwitch.large {
+    width: 63px;
+    height: 26px;
+  }
+  .toggleSwitch.large a {
+    width: 28px;
+  }
+  .toggleSwitch.large > span {
+    height: 30px;
+    line-height: 28px;
+  }
+  .toggleSwitch.large input:checked ~ a {
+    left: 41px;
+  }
+  .toggleSwitch.large > span span {
+    font-size: 1.1em;
+  }
+  .toggleSwitch.large > span span:first-of-type {
+    left: 50%;
+  }
+
+  .toggleSwitch.xlarge {
+    width: 82px;
+    height: 36px;
+  }
+  .toggleSwitch.xlarge a {
+    width: 36px;
+  }
+  .toggleSwitch.xlarge > span {
+    height: 40px;
+    line-height: 37px;
+  }
+  .toggleSwitch.xlarge input:checked ~ a {
+    left: 52px;
+  }
+  .toggleSwitch.xlarge > span span {
+    font-size: 1.4em;
+  }
+  .toggleSwitch.xlarge > span span:first-of-type {
+    left: 50%;
+  }
+}
+
+/*  End Toggle Switch  */

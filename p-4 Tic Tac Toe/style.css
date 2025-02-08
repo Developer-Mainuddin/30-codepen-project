@@ -1,0 +1,176 @@
+/* position / height × width / margin / padding / border / background / font*/
+
+body {
+  min-width: 340px;
+  background: #f3f3f3;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Acme', sans-serif;
+}
+
+.dialogueBox {
+  position: relative;
+  left: 50%;
+  z-index: 1;
+  min-height: 100px;
+  padding: 1.25em;
+  background: #2ab7ca;
+  color: white;
+  transition: 1s;
+}
+
+.startScreen {
+  width: 70%;
+  top: 3em;
+  margin-left: -35%;
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 1em;
+  font-size: 1.15em;
+  opacity: 0.9;
+}
+
+.title {
+  margin-bottom: 0.25em;
+  font-size: 4em;
+}
+
+.startScreenMarkerX {
+  color: #f0ad4e;
+}
+
+.startScreenMarkerO {
+  color: #0275d8;
+}
+
+.versus {
+  margin: auto;
+  padding: 0.01em;
+  border-radius: 50%;
+  background: #1f8693;
+  font-size: 2.25em;
+  font-style: italic;
+}
+
+.radio input[type="radio"]:empty {
+  display: none;
+}
+
+.radio label {
+  width: 100%;
+  border: 0.1em solid #1f8693;
+  border-radius: 0.25em;
+}
+
+.radio input[type="radio"]:empty ~ label {
+  line-height: 2.5em;
+  margin: 0.25em auto;
+  cursor: pointer;
+}
+
+.radio input[type="radio"]:not(:checked) ~ label {
+  color: #34919d;
+}
+
+.radio .radioBtn-warning input[type="radio"]:checked ~ label {
+  color: white;
+  background: #f0ad4e;
+}
+
+.radio .radioBtn-primary input[type="radio"]:checked ~ label {
+  color: white;
+  background: #0275d8;
+}
+
+.btn {
+  font-family: 'Acme', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.startGame {
+  margin: 1.5em 0 0.5em 0;
+}
+
+.viewSource {
+  font-family: menlo, monospace;
+  white-space: normal;
+}
+
+.scoreboardUtility {
+  display: none;
+}
+
+.scoreboardScreen {
+  width: 100%;
+  margin-left: -50%;
+  top: 0;
+  background: #2ab7ca;
+  letter-spacing: 0.15em;
+  color: white;
+  opacity: 0.8;
+}
+
+.score {
+  white-space: nowrap;
+}
+
+.messageToPlayer {
+  visibility: visible;
+  padding: 0.05em;
+  border-radius: 50%;
+  font-size: 3.15em;
+  background: #1f8693;
+  font-family: 'Acme', sans-serif;
+}
+
+.actionWord {
+  visibility: hidden;
+}
+
+.actionWordVisible {
+  visibility: visible;
+  font-style: italic;
+  transition: 0.3s;
+  color: #5cb85c;
+}
+
+.playAgain {
+  margin-bottom: 0.5em;
+}
+
+.resetGame {
+  margin-bottom: 0.5em;
+}
+
+table {
+  margin: 5% auto;
+  border-collapse: collapse;
+  transition: 1s;
+}
+
+.gameSquare {
+  height: 15em;
+  line-height: 0;
+  border: 0.4em solid white;
+  transition: 1s;
+}
+
+table tr:first-child td {
+  border-top: 0;
+}
+
+table tr td:last-child {
+  border-right: 0;
+}
+
+table tr td:first-child {
+  border-left: 0;
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+canvas {
+  height: 100%;
+  cursor: pointer;
+}

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+	--morning-color: #60a5fa;
+	--night-color: #7c3aed;
+	--morning-bg: #87ceeb;
+	--night-bg: #1a237e;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: system-ui, sans-serif;
+	background-color: var(--morning-bg);
+	transition: background-color 0.5s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.background-elements {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.clouds {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+
+.cloud {
+	position: absolute;
+	width: 180px;
+	height: 60px;
+	opacity: 0.9;
+}
+
+.cloud:nth-child(1) {
+	top: 12%;
+	animation: float 25s linear infinite;
+	animation-delay: -18s;
+	transform: scale(0.9);
+}
+.cloud:nth-child(2) {
+	top: 28%;
+	animation: float 22s linear infinite;
+	animation-delay: -3s;
+	transform: scale(1.1);
+}
+.cloud:nth-child(3) {
+	top: 45%;
+	animation: float 28s linear infinite;
+	animation-delay: -12s;
+	transform: scale(0.85);
+}
+.cloud:nth-child(4) {
+	top: 33%;
+	animation: float 20s linear infinite;
+	animation-delay: -7s;
+	transform: scale(1.2);
+}
+.cloud:nth-child(5) {
+	top: 67%;
+	animation: float 24s linear infinite;
+	animation-delay: -15s;
+	transform: scale(0.95);
+}
+.cloud:nth-child(6) {
+	top: 52%;
+	animation: float 26s linear infinite;
+	animation-delay: -4s;
+	transform: scale(1.15);
+}
+.cloud:nth-child(7) {
+	top: 82%;
+	animation: float 23s linear infinite;
+	animation-delay: -9s;
+	transform: scale(0.8);
+}
+.cloud:nth-child(8) {
+	top: 73%;
+	animation: float 27s linear infinite;
+	animation-delay: -21s;
+	transform: scale(1.05);
+}
+
+.cloud-part {
+	position: absolute;
+	background: white;
+	border-radius: 50%;
+	filter: blur(5px);
+}
+
+.cloud-part:nth-child(1) {
+	width: 60px;
+	height: 60px;
+	top: -25px;
+	left: 20px;
+}
+.cloud-part:nth-child(2) {
+	width: 70px;
+	height: 70px;
+	top: -30px;
+	left: 60px;
+}
+.cloud-part:nth-child(3) {
+	width: 55px;
+	height: 55px;
+	top: -20px;
+	left: 100px;
+}
+
+.cloud-base {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background: white;
+	border-radius: 20px;
+	filter: blur(5px);
+	bottom: 0;
+}
+
+.stars {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.stars::before,
+.stars::after {
+	content: "";
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	background: white;
+	border-radius: 50%;
+	filter: blur(1px);
+	box-shadow: 15vw 10vh 3px white, 35vw 15vh 2px white, 25vw 25vh 4px white,
+		85vw 35vh 3px white, 45vw 45vh 2px white, 65vw 55vh 4px white,
+		75vw 65vh 3px white, 10vw 75vh 4px white, 90vw 85vh 3px white,
+		50vw 90vh 2px white, 5vw 15vh 3px white, 95vw 25vh 4px white,
+		30vw 40vh 3px white, 70vw 50vh 4px white, 20vw 60vh 3px white,
+		80vw 70vh 2px white, 40vw 80vh 4px white, 60vw 95vh 3px white;
+	animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.stars::after {
+	animation-delay: 1s;
+}
+
+.time-picker {
+	background: rgba(255, 255, 255, 0.9);
+	padding: 2rem;
+	border-radius: 1rem;
+	border: none;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	position: relative;
+	z-index: 1;
+	max-width: 400px;
+}
+
+fieldset.time-picker {
+	border: none;
+	margin: 0;
+}
+
+legend {
+	font-size: 1.25rem;
+	font-weight: 600;
+	padding-bottom: 2.5rem;
+	width: 100%;
+	text-align: center;
+}
+
+.options {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.option {
+	position: relative;
+}
+
+input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1rem;
+	border: 2px solid #e5e7eb;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	width: 100px;
+}
+
+label:hover {
+	background-color: #f3f4f6;
+}
+
+svg {
+	width: 2rem;
+	height: 2rem;
+	stroke: #9ca3af;
+	transition: stroke 0.2s ease;
+}
+
+span {
+	font-weight: 500;
+	color: #4b5563;
+	transition: color 0.2s ease;
+}
+
+body:has(#night:checked) {
+	background-color: var(--night-bg);
+}
+
+body:has(#morning:checked) {
+	background-color: var(--morning-bg);
+}
+
+body:has(#night:checked) .clouds {
+	opacity: 0;
+}
+
+body:has(#night:checked) .stars {
+	opacity: 1;
+}
+
+input[value="morning"]:checked ~ label {
+	border-color: var(--morning-color);
+	background-color: #eff6ff;
+}
+
+input[value="morning"]:checked ~ label svg {
+	stroke: var(--morning-color);
+}
+
+input[value="morning"]:checked ~ label span {
+	color: var(--morning-color);
+}
+
+input[value="night"]:checked ~ label {
+	border-color: var(--night-color);
+	background-color: #f5f3ff;
+}
+
+input[value="night"]:checked ~ label svg {
+	stroke: var(--night-color);
+}
+
+input[value="night"]:checked ~ label span {
+	color: var(--night-color);
+}
+
+input[type="radio"]:focus-visible ~ label {
+	outline: 2px solid #3b82f6;
+	outline-offset: 2px;
+}
+
+@keyframes float {
+	from {
+		transform: translateX(-20vw);
+	}
+	to {
+		transform: translateX(100vw);
+	}
+}
+
+@keyframes twinkle {
+	0% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+  </style>
+</head>
+<body>
+  <div class="background-elements">
+    <div class="clouds">
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+      <div class="cloud">
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-part"></div>
+        <div class="cloud-base"></div>
+      </div>
+    </div>
+    <div class="stars"></div>
+  </div>
+  
+  <fieldset class="time-picker">
+    <legend>Choose time of day: </legend>
+    <div class="options">
+      <div class="option">
+        <input type="radio" id="morning" name="time" value="morning" checked />
+        <label for="morning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="M4.93 4.93l1.41 1.41" />
+            <path d="M17.66 17.66l1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="M6.34 17.66l-1.41 1.41" />
+            <path d="M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <span>Morning</span>
+        </label>
+      </div>
+      <div class="option">
+        <input type="radio" id="night" name="time" value="night" />
+        <label for="night">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <span>Night</span>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</body>
+</html>

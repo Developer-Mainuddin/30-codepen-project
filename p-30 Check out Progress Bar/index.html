@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --green: #1cbd2c;
+      --grey: #c4c4c4;
+      --white: #ffffff;
+      --padding: 1em;
+    }
+
+    * {
+      padding: 0;
+      border: 0;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: Helvetica, sans-serif;
+    }
+
+    .mainWrapper {
+      width: 100ch;
+      min-width: 40ch;
+      max-width: 75vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .statusBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .statusBar::before {
+      content: "";
+      height: 0.3em;
+      background-color: var(--grey);
+      position: absolute;
+      left: var(--padding);
+      right: var(--padding);
+    }
+
+    .pBar {
+      height: 0.3em;
+      border-radius: 0 0 0.15em 0.15em;
+      background-color: var(--green);
+      max-width: 100%;
+      position: absolute;
+      left: 0;
+      width: 0%;
+    }
+
+    .statusBar > .node {
+      background-color: var(--grey);
+      height: 1.2em;
+      width: 1.2em;
+      border-radius: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .node > .text {
+      font-weight: 200;
+      color: var(--grey);
+      text-align: center;
+      position: absolute;
+      top: 2.5em;
+      cursor: pointer;
+    }
+
+    .node.done {
+      background-color: var(--green);
+    }
+
+    .node > .text.done {
+      color: var(--green);
+    }
+
+    .node > .main {
+      position: absolute;
+      border: 0.2em var(--grey) solid;
+      width: 0;
+      height: 0;
+      border-radius: 100%;
+    }
+
+    .node > .main.done {
+      border: 0.2em var(--green) solid;
+      width: 2em;
+      height: 2em;
+    }
+
+    .buttonHolder {
+      margin-top: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      padding: 0.5em 1em;
+      margin: 1em;
+      font-size: 1.3em;
+      border-radius: 1.5em;
+      cursor: pointer;
+    }
+
+    .button.b-next {
+      background-color: var(--green);
+      color: var(--white);
+    }
+
+    .button.b-next:hover {
+      box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .button.disabled,
+    .button.disabled:hover {
+      opacity: 30%;
+      cursor: default;
+    }
+
+    .button.b-back {
+      box-shadow: 0px 0px 0px 0.2em var(--green) inset;
+      background-color: var(--white);
+      color: var(--green);
+    }
+
+    .made {
+      position: absolute;
+      bottom: 0.7em;
+    }
+
+    .made > .credit {
+      opacity: 40%;
+      color: #4b4b4b;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="mainWrapper">
+    <div class="statusBar">
+      <span class="pBar"></span>
+      <div class="node n0 done nConfirm0">
+        <div class="main done m0"></div>
+        <span class="text t0 done">Confirm</span>
+      </div>
+      <div class="node n1 nConfirm1">
+        <div class="main m1"></div>
+        <span class="text t1">Address</span>
+      </div>
+      <div class="node n2 nConfirm2">
+        <div class="main m2"></div>
+        <span class="text t2">Review</span>
+      </div>
+      <div class="node n3 nConfirm3">
+        <div class="main m3"></div>
+        <span class="text t3">Payment</span>
+      </div>
+      <div class="node n4 nConfirm4">
+        <div class="main m4"></div>
+        <span class="text t4">Complete</span>
+      </div>
+    </div>
+    <div class="buttonHolder">
+      <div class="button b-back disabled" id="back">Back</div>
+      <div class="button b-next" id="next">Next</div>
+    </div>
+  </div>
+
+  <div class="made">
+    <p class="credit">Made with ♥ by Tsien Jin</p>
+  </div>
+
+  <!-- jQuery Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      var state = 0;
+      var stateMax = 4;
+
+      function updateProgressBar() {
+        var pBar = (state / stateMax) * 100;
+        $(".pBar").css("width", pBar + "%");
+      }
+
+      $("#next").click(function () {
+        if (state < stateMax) {
+          state++;
+          $("#back").removeClass("disabled");
+          $(".nConfirm" + state).addClass("done");
+          updateProgressBar();
+
+          if (state === stateMax) {
+            $("#next").addClass("disabled");
+          }
+        }
+      });
+
+      $("#back").click(function () {
+        if (state > 0) {
+          $(".nConfirm" + state).removeClass("done");
+          state--;
+          updateProgressBar();
+
+          if (state === 0) {
+            $("#back").addClass("disabled");
+          }
+          $("#next").removeClass("disabled");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

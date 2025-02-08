@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript: BMI calculator</title>
+    <link rel="stylesheet" href="style.css">
+	</head>
+<body>
+	<h1>BMI calculator</h1>
+<form id="calc">
+	<div class="firstLabel">
+	<label>Your height: </label>
+		<input class = "values" type="text"  id="num1" required><label class="secondLabel">centimetres</label>
+	</div>
+		<br>
+	<div>
+		<label>Your weight:</label>
+		<input class = "values" type="text" id="num2" required ><label class="secondLabel">kilogrammes</label>
+	</div>
+		<br>
+	<div id="gender">
+	<input  name="gender" type="radio" value="0" checked>	
+	<label>Female</label>
+	<input name="gender" type="radio" value="1">
+	<label>Male</label>
+	</div>
+    <br>
+	<button id="btn" type="submit" class="btn btn-primary" >Calculate</button>
+	<div>
+		<h4>Your BMI:</h4>
+		<p id="result"></p>
+	</div>
+	<br>
+	<p id="message"></p>
+	</form>
+
+  <script src="new.js"></script>
+	</body>
+</html>

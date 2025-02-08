@@ -1,0 +1,103 @@
+body {
+	background-color: #effffe;
+	text-align: center;
+	margin-top: 45px;
+	font-family: monospace, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+  color: white;
+}
+
+.values {
+	width: 100px;
+	margin-right: 4px;
+}
+#num1 {
+	margin-left: 2px;
+}
+
+.firstLabel {
+	margin-left: -5px;
+}
+
+#gender {
+	margin-left: -5px;
+}
+#btn {
+	border: solid #000 2px;
+	border-radius: 25%;
+}
+#btn:hover {
+	background-color: #fefecc;
+	font-weight: bold;
+}
+h4 {
+	padding-top: 25px;
+}
+
+#result {
+	border: solid #ccc 2px;
+	border-radius: 25%;
+	width:150px;
+	padding-top: 10px;
+	position: relative;
+	left: 23%;
+	height:40px;
+	margin: 20px;
+	text-align: center;
+	background-color: #fff;
+	font-size: 20px;
+	color: black;
+}
+#calc {
+	border: solid #000 3px;
+	width: 350px;
+	height: 350px;
+	border-radius: 8%;
+	text-align: center;
+	padding: 15px;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	position: absolute;
+	top: 18%;
+	left:36%;
+	background-color: #761aff;
+}
+
+#message {
+	font-weight: bold;
+    font-size: 20px;
+	text-transform: uppercase;
+}
+
+@media (max-width:815px){
+	
+	#calc {
+       position: relative;
+	   width: 50%;
+	   margin-left:-70px; 
+	   padding-bottom: 55px;
+	}
+	
+	#result {
+		position: relative;
+		width: 34%;
+		left: 22%;
+	}	
+	
+	#radio {
+		position: relative;
+		width: 78%;
+	}
+	#num1 {
+		margin-left: -3px;
+		margin-right: 4px;
+	}
+	#num2 {
+		margin-left: -6px;
+		margin-right: 6px;
+	}
+	.secondLabel{
+		margin-left: 90px;
+	}
+}
